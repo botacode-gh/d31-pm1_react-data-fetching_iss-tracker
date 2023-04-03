@@ -1,15 +1,11 @@
-import { useState } from "react";
+import useSWR from "swr";
 import Controls from "../Controls/index";
 import Map from "../Map/index";
-import useSWR from "swr";
 
 const URL = "https://api.wheretheiss.at/v1/satellites/25544";
-const fetcher = (URL) => fetch(URL).then((response) => response.json());
 
 export default function ISSTracker() {
-  const { data, error, isLoading, mutate } = useSWR(URL, fetcher, {
-    refreshInterval: 5000,
-  });
+  const { data, error, isLoading, mutate } = useSWR(URL);
 
   if (error) {
     return (
