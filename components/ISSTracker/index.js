@@ -16,12 +16,7 @@ export default function ISSTracker() {
   }
 
   if (isLoading) {
-    return (
-      <h2>
-        Aaaa... uhmm wait for a bit, I&apos;ll be right there with some fresh
-        data :D
-      </h2>
-    );
+    return <h2>Locating satellite 📡</h2>;
   }
 
   /// original, unnecessary code from the exercise's initial state
@@ -58,7 +53,7 @@ export default function ISSTracker() {
       <Controls
         longitude={data.longitude}
         latitude={data.latitude}
-        onRefresh={mutate}
+        onRefresh={() => mutate()}
       />
     </main>
   );
