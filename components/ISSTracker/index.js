@@ -58,16 +58,12 @@ export default function ISSTracker() {
 
   return (
     <main>
-      {data && (
-        <>
-          <Map longitude={data.longitude} latitude={data.latitude} />
-          <Controls
-            longitude={data.longitude}
-            latitude={data.latitude}
-            onRefresh={() => mutate()}
-          />
-        </>
-      )}
+      <Map longitude={data.longitude} latitude={data.latitude} />
+      <Controls
+        longitude={data.longitude}
+        latitude={data.latitude}
+        onRefresh={mutate}
+      />
     </main>
   );
 }
